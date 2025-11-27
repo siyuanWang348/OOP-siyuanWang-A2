@@ -1,3 +1,4 @@
+// src/VisitorComparator.java
 /**
  * 游客比较器，实现Comparator接口
  * 排序规则：先按年龄升序，再按是否有快速通行证降序（有通行证在前）

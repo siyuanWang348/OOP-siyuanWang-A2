@@ -1,65 +1,59 @@
 /**
- * 主类，包含各部分功能的演示方法
+ * Main class containing demonstration methods for each part
  */
 public class AssignmentTwo {
     public static void main(String[] args) {
         AssignmentTwo demo = new AssignmentTwo();
-
-        // 依次运行各部分演示
-        System.out.println("==================================== Part3 演示：队列管理 ====================================");
+        // Run each part demonstration in sequence
+        System.out.println("==================================== Part3 Demonstration: Queue Management ====================================");
         demo.partThree();
-
-        System.out.println("\n==================================== Part4A 演示：乘坐历史管理 ====================================");
+        System.out.println("\n==================================== Part4A Demonstration: Ride History Management ====================================");
         demo.partFourA();
-
-        System.out.println("\n==================================== Part4B 演示：历史排序 ====================================");
+        System.out.println("\n==================================== Part4B Demonstration: History Sorting ====================================");
         demo.partFourB();
-
-        System.out.println("\n==================================== Part5 演示：运行游乐设施周期 ====================================");
+        System.out.println("\n==================================== Part5 Demonstration: Ride Cycle Operation ====================================");
         demo.partFive();
-
-        System.out.println("\n==================================== Part6 演示：导出历史到文件 ====================================");
+        System.out.println("\n==================================== Part6 Demonstration: Export History to File ====================================");
         demo.partSix();
-
-        System.out.println("\n==================================== Part7 演示：从文件导入历史 ====================================");
+        System.out.println("\n==================================== Part7 Demonstration: Import History from File ====================================");
         demo.partSeven();
     }
 
-    // Part3：队列管理演示
+    // Part3: Queue Management Demonstration
     public void partThree() {
-        // 创建操作员
-        Employee operator = new Employee("张三", 30, "13800138000", "EMP001", "过山车区域");
-        // 创建游乐设施
-        Ride rollerCoaster = new Ride("过山车", "刺激类", true, operator, 2);
+        // Create operator
+        Employee operator = new Employee("Zhang San", 30, "13800138000", "EMP001", "Roller Coaster Area");
+        // Create ride
+        Ride rollerCoaster = new Ride("Roller Coaster", "Thrilling", true, operator, 2);
 
-        // 添加5名游客到队列
-        rollerCoaster.addVisitorToQueue(new Visitor("Jack", 25, "13900139001", "VIS001", true));
-        rollerCoaster.addVisitorToQueue(new Visitor("Sharon", 22, "13900139002", "VIS002", false));
-        rollerCoaster.addVisitorToQueue(new Visitor("Benny", 30, "13900139003", "VIS003", true));
-        rollerCoaster.addVisitorToQueue(new Visitor("Leo", 18, "13900139004", "VIS004", false));
-        rollerCoaster.addVisitorToQueue(new Visitor("Lucy", 28, "13900139005", "VIS005", true));
+        // Add 5 visitors to queue
+        rollerCoaster.addVisitorToQueue(new Visitor("sherry", 25, "13900139001", "VIS001", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("Susan", 22, "13900139002", "VIS002", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Alina", 30, "13900139003", "VIS003", true));
+        rollerCoaster.addVisitorToQueue(new Visitor("siyuanWang", 18, "13900139004", "VIS004", false));
+        rollerCoaster.addVisitorToQueue(new Visitor("Lucy", 28, "13113560313", "VIS005", true));
 
-        // 打印队列
+        // Print queue
         rollerCoaster.printQueue();
 
-        // 移除1名游客
+        // Remove 1 visitor
         rollerCoaster.removeVisitorFromQueue();
 
-        // 打印移除后的队列
-        System.out.println("\n移除1名游客后的队列：");
+        // Print queue after removal
+        System.out.println("\nQueue after removing 1 visitor:");
         rollerCoaster.printQueue();
     }
 
-    // Part4A：乘坐历史管理演示
+    // Part4A: Ride History Management Demonstration
     public void partFourA() {
-        Ride thunderstorm = new Ride("雷暴飞车", "极速类", true, null, 4);
+        Ride thunderstorm = new Ride("Thunderstorm Ride", "Extreme Speed", true, null, 4);
 
-        // 添加5名游客到历史
-        Visitor v1 = new Visitor("Tom", 24, "13700137001", "VIS006", false);
-        Visitor v2 = new Visitor("Sherly", 26, "13700137002", "VIS007", true);
-        Visitor v3 = new Visitor("Ben", 21, "13700137003", "VIS008", false);
-        Visitor v4 = new Visitor("David", 35, "13700137004", "VIS009", true);
-        Visitor v5 = new Visitor("Lisa", 29, "13700137005", "VIS010", false);
+        // Add 5 visitors to history
+        Visitor v1 = new Visitor("sherry", 24, "13700137001", "VIS006", false);
+        Visitor v2 = new Visitor("Susan", 26, "13700137002", "VIS007", true);
+        Visitor v3 = new Visitor("Alina", 21, "13700137003", "VIS008", false);
+        Visitor v4 = new Visitor("siyuanWang", 35, "13700137004", "VIS009", true);
+        Visitor v5 = new Visitor("Lisa", 29, "13113560313", "VIS010", false);
 
         thunderstorm.addVisitorToHistory(v1);
         thunderstorm.addVisitorToHistory(v2);
@@ -67,98 +61,98 @@ public class AssignmentTwo {
         thunderstorm.addVisitorToHistory(v4);
         thunderstorm.addVisitorToHistory(v5);
 
-        // 检查游客是否在历史中
-        Visitor checkVisitor = new Visitor("Sherly", 26, "13700137002", "VIS007", true);
-        System.out.println("\n游客 " + checkVisitor.getName() + " 是否在乘坐历史中？" + (thunderstorm.checkVisitorFromHistory(checkVisitor) ? "是" : "否"));
+        // Check if visitor is in history
+        Visitor checkVisitor = new Visitor("Susan", 26, "13700137002", "VIS007", true);
+        System.out.println("\nIs visitor " + checkVisitor.getName() + " in ride history? " + (thunderstorm.checkVisitorFromHistory(checkVisitor) ? "Yes" : "No"));
 
-        // 打印历史游客数量
-        System.out.println("乘坐历史游客总数：" + thunderstorm.numberOfVisitors());
+        // Print number of visitors in history
+        System.out.println("Total visitors in ride history: " + thunderstorm.numberOfVisitors());
 
-        // 打印乘坐历史
+        // Print ride history
         thunderstorm.printRideHistory();
     }
 
-    // Part4B：历史排序演示
+    // Part4B: History Sorting Demonstration
     public void partFourB() {
-        Ride logFlume = new Ride("激流勇进", "水上类", true, null, 6);
+        Ride logFlume = new Ride("Log Flume", "Water Ride", true, null, 6);
 
-        // 添加5名游客到历史
-        logFlume.addVisitorToHistory(new Visitor("Alice", 22, "13600136001", "VIS011", false));
-        logFlume.addVisitorToHistory(new Visitor("Bob", 18, "13600136002", "VIS012", true));
-        logFlume.addVisitorToHistory(new Visitor("Charlie", 22, "13600136003", "VIS013", true));
-        logFlume.addVisitorToHistory(new Visitor("Diana", 30, "13600136004", "VIS014", false));
-        logFlume.addVisitorToHistory(new Visitor("Eve", 18, "13600136005", "VIS015", false));
+        // Add 5 visitors to history
+        logFlume.addVisitorToHistory(new Visitor("sherry", 22, "13600136001", "VIS011", false));
+        logFlume.addVisitorToHistory(new Visitor("Susan", 18, "13600136002", "VIS012", true));
+        logFlume.addVisitorToHistory(new Visitor("Alina", 22, "13600136003", "VIS013", true));
+        logFlume.addVisitorToHistory(new Visitor("siyuanWang", 30, "13600136004", "VIS014", false));
+        logFlume.addVisitorToHistory(new Visitor("Eve", 18, "13113560313", "VIS015", false));
 
-        // 排序前打印
-        System.out.println("排序前的乘坐历史：");
+        // Print before sorting
+        System.out.println("Ride history before sorting:");
         logFlume.printRideHistory();
 
-        // 使用自定义比较器排序
+        // Sort using custom comparator
         logFlume.sortRideHistory(new VisitorComparator());
 
-        // 排序后打印
-        System.out.println("\n排序后的乘坐历史（按年龄升序，同年龄有快速通行证在前）：");
+        // Print after sorting
+        System.out.println("\nRide history after sorting (ascending by age, fast pass first for same age):");
         logFlume.printRideHistory();
     }
 
-    // Part5：运行游乐设施周期演示
+    // Part5: Ride Cycle Operation Demonstration
     public void partFive() {
-        // 创建操作员
-        Employee operator = new Employee("李四", 35, "13500135000", "EMP002", "水上设施区域");
-        // 创建游乐设施（每周期最多4人）
-        Ride waterSlide = new Ride("水上滑梯", "水上类", true, operator, 4);
+        // Create operator
+        Employee operator = new Employee("Li Si", 35, "13500135000", "EMP002", "Water Rides Area");
 
-        // 添加10名游客到队列
+        // Create ride (maximum 4 people per cycle)
+        Ride waterSlide = new Ride("Water Slide", "Water Ride", true, operator, 4);
+
+        // Add 10 visitors to queue
         for (int i = 0; i < 10; i++) {
             waterSlide.addVisitorToQueue(new Visitor(
-                    "游客" + (i + 1),
-                    18 + (i % 20), // 年龄18-37岁
+                    "Visitor" + (i + 1),
+                    18 + (i % 20), // Age 18-37
                     "1340013400" + i,
                     "VIS0" + (20 + i),
-                    i % 3 == 0 // 每3人1个快速通行证
+                    i % 3 == 0 // Fast pass every 3 people
             ));
         }
 
-        // 打印运行前队列
-        System.out.println("运行前队列：");
+        // Print queue before operation
+        System.out.println("Queue before operation:");
         waterSlide.printQueue();
 
-        // 运行1个周期
+        // Run 1 cycle
         waterSlide.runOneCycle();
 
-        // 打印运行后队列和历史
-        System.out.println("\n运行后队列：");
+        // Print queue and history after operation
+        System.out.println("\nQueue after operation:");
         waterSlide.printQueue();
-
-        System.out.println("\n运行后的乘坐历史：");
+        System.out.println("\nRide history after operation:");
         waterSlide.printRideHistory();
     }
 
-    // Part6：导出历史到文件演示
+    // Part6: Export History to File Demonstration
     public void partSix() {
-        Ride FerrisWheel = new Ride("摩天轮", "观光类", true, null, 8);
+        Ride FerrisWheel = new Ride("Ferris Wheel", "Sightseeing", true, null, 8);
 
-        // 添加5名游客到历史
-        FerrisWheel.addVisitorToHistory(new Visitor("Mike", 27, "13300133001", "VIS030", true));
-        FerrisWheel.addVisitorToHistory(new Visitor("Emma", 23, "13300133002", "VIS031", false));
-        FerrisWheel.addVisitorToHistory(new Visitor("Olivia", 25, "13300133003", "VIS032", true));
-        FerrisWheel.addVisitorToHistory(new Visitor("Noah", 32, "13300133004", "VIS033", false));
-        FerrisWheel.addVisitorToHistory(new Visitor("Sophia", 29, "13300133005", "VIS034", true));
+        // Add 5 visitors to history
+        FerrisWheel.addVisitorToHistory(new Visitor("sherry", 27, "13300133001", "VIS030", true));
+        FerrisWheel.addVisitorToHistory(new Visitor("Susan", 23, "13300133002", "VIS031", false));
+        FerrisWheel.addVisitorToHistory(new Visitor("Alina", 25, "13300133003", "VIS032", true));
+        FerrisWheel.addVisitorToHistory(new Visitor("siyuanWang", 32, "13300133004", "VIS033", false));
+        FerrisWheel.addVisitorToHistory(new Visitor("Sophia", 29, "13113560313", "VIS034", true));
 
-        // 导出到CSV文件（路径可根据实际调整）
+        // Export to CSV file (path can be adjusted as needed)
         FerrisWheel.exportRideHistory("ride_history_export.csv");
     }
 
-    // Part7：从文件导入历史演示
+    // Part7: Import History from File Demonstration
     public void partSeven() {
-        Ride importRide = new Ride("导入测试设施", "测试类", true, null, 5);
+        Ride importRide = new Ride("Import Test Ride", "Test", true, null, 5);
 
-        // 从Part6导出的文件导入
+        // Import from file exported in Part6
         importRide.importRideHistory("ride_history_export.csv");
 
-        // 验证导入结果
-        System.out.println("导入后的游客总数：" + importRide.numberOfVisitors());
-        System.out.println("导入的游客详情：");
+        // Verify import result
+        System.out.println("Total visitors after import: " + importRide.numberOfVisitors());
+        System.out.println("Imported visitor details:");
         importRide.printRideHistory();
     }
 }

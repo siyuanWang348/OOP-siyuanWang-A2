@@ -1,7 +1,9 @@
+// src/RideInterface.java
 /**
  * 游乐设施接口，定义游乐设施必须实现的核心方法
  */
-import java.util.Visitor;
+// 移除错误的import，添加正确的导入
+import java.util.Comparator;
 
 public interface RideInterface {
     // 队列管理方法
